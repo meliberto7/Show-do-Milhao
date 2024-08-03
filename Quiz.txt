@@ -1,0 +1,121 @@
+CREATE DATABASE Quiz;
+USE Quiz;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(45) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    senha VARCHAR(20) NOT NULL
+);
+
+INSERT INTO usuarios (usuario, nome, senha) VALUES ('user1', 'Alice Silva', '1234');
+INSERT INTO usuarios (usuario, nome, senha) VALUES ('user2', 'Bruno Costa', 'abcd');
+INSERT INTO usuarios (usuario, nome, senha) VALUES ('user3', 'Carlos Santos', '4321');
+INSERT INTO usuarios (usuario, nome, senha) VALUES ('user4', 'Diana Lima', 'dcba');
+INSERT INTO usuarios (usuario, nome, senha) VALUES ('user5', 'Eduardo Ferreira', '5678');
+
+-- Criacao da tabela de categorias
+CREATE TABLE categorias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    nome VARCHAR(50) NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Insercao das categorias
+INSERT INTO categorias (usuario_id, nome) VALUES
+(1, 'Esportes'),
+(1, 'Ciencia e Natureza'),
+(1, 'Entretenimento'),
+(1, 'Tecnologia'),
+(1, 'Geral');
+
+CREATE TABLE perguntas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    categoria_id INT,
+    pergunta VARCHAR(255) NOT NULL,
+    alternativa1 VARCHAR(255) NOT NULL,
+    alternativa2 VARCHAR(255) NOT NULL,
+    alternativa3 VARCHAR(255) NOT NULL,
+    alternativa4 VARCHAR(255) NOT NULL,
+    correta VARCHAR(255) NOT NULL, 
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+);
+
+INSERT INTO perguntas (categoria_id, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, correta) VALUES
+(1, 'Qual e o time com mais titulos da Copa do Mundo?', 'Alemanha', 'Brasil', 'Italia', 'Argentina', 'Brasil'),
+(1, 'Em qual ano Michael Jordan se aposentou definitivamente da NBA?', '1999', '2001', '2003', '2005', '2003'),
+(1, 'Quem e conhecido como o "Pele do futebol feminino"?', 'Marta', 'Mia Hamm', 'Abby Wambach', 'Birgit Prinz', 'Marta'),
+(1, 'Qual pais sediou as Olimpiadas de 2008?', 'Grecia', 'China', 'Brasil', 'Japao', 'China'),
+(1, 'Quem venceu a Copa do Mundo de 2018?', 'Alemanha', 'Brasil', 'Franca', 'Croacia', 'Franca'),
+(1, 'Qual e o recorde de medalhas olimpicas de Michael Phelps?', '18', '22', '28', '30', '28'),
+(1, 'Qual e o esporte mais popular no mundo?', 'Basquete', 'Futebol', 'Criquete', 'Tenis', 'Futebol'),
+(1, 'Quem ganhou o Tour de France em 2020?', 'Tadej Pogacar', 'Primoz Roglic', 'Egan Bernal', 'Chris Froome', 'Tadej Pogacar'),
+(1, 'Qual e o pais de origem do rugby?', 'Franca', 'Inglaterra', 'Nova Zelandia', 'Australia', 'Inglaterra'),
+(1, 'Qual jogador de tenis tem o maior numero de titulos de Grand Slam?', 'Roger Federer', 'Rafael Nadal', 'Novak Djokovic', 'Pete Sampras', 'Novak Djokovic');
+
+INSERT INTO perguntas (categoria_id, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, correta) VALUES
+(2, 'Qual e o elemento quimico mais abundante no universo?', 'Oxigenio', 'Hidrogenio', 'Carbono', 'Helio', 'Hidrogenio'),
+(2, 'Qual e o maior mamifero terrestre?', 'Elefante africano', 'Baleia azul', 'Girafa', 'Rinoceronte branco', 'Elefante africano'),
+(2, 'Quantos planetas ha no sistema solar?', '7', '8', '9', '10', '8'),
+(2, 'Qual e o orgao mais pesado do corpo humano?', 'Coracao', 'Figado', 'Cerebro', 'Pulmoes', 'Figado'),
+(2, 'Qual e a unidade basica da vida?', 'Celula', 'Atomo', 'Molecula', 'Organela', 'Celula'),
+(2, 'Qual gas e essencial para a respiracao?', 'Oxigenio', 'Nitrogenio', 'Dioxido de carbono', 'Hidrogenio', 'Oxigenio'),
+(2, 'Qual cientista formulou a teoria da relatividade?', 'Isaac Newton', 'Galileu Galilei', 'Albert Einstein', 'Niels Bohr', 'Albert Einstein'),
+(2, 'Qual e a maior floresta tropical do mundo?', 'Floresta Amazonica', 'Floresta do Congo', 'Floresta da Bacia do Orinoco', 'Floresta de Daintree', 'Floresta Amazonica'),
+(2, 'Qual planeta e conhecido como o Planeta Vermelho?', 'Mercurio', 'Marte', 'Jupiter', 'Saturno', 'Marte'),
+(2, 'Qual e a velocidade da luz?', '300,000 km/s', '150,000 km/s', '450,000 km/s', '600,000 km/s', '300,000 km/s');
+
+INSERT INTO perguntas (categoria_id, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, correta) VALUES
+(3, 'Qual filme ganhou o Oscar de Melhor Filme em 2020?', '1917', 'Coringa', 'Parasita', 'Era Uma Vez em... Hollywood', 'Parasita'),
+(3, 'Qual serie de TV tem como personagens principais um grupo de amigos vivendo em Nova York?', 'How I Met Your Mother', 'Friends', 'Seinfeld', 'The Big Bang Theory', 'Friends'),
+(3, 'Quem interpretou Jack Dawson em Titanic?', 'Leonardo DiCaprio', 'Brad Pitt', 'Johnny Depp', 'Tom Cruise', 'Leonardo DiCaprio'),
+(3, 'Qual e o nome do parque tematico da Disney localizado na California?', 'Epcot', 'Disneyland', 'Magic Kingdom', 'Animal Kingdom', 'Disneyland'),
+(3, 'Qual cantor e conhecido como o Rei do Pop?', 'Elvis Presley', 'Michael Jackson', 'Prince', 'Madonna', 'Michael Jackson'),
+(3, 'Qual e o nome do hobbit interpretado por Elijah Wood na trilogia "O Senhor dos Aneis"?', 'Bilbo Baggins', 'Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Frodo Baggins'),
+(3, 'Qual e o nome do primeiro filme da serie "Harry Potter"?', 'Harry Potter e a Camara Secreta', 'Harry Potter e a Pedra Filosofal', 'Harry Potter e o Prisioneiro de Azkaban', 'Harry Potter e o Calice de Fogo', 'Harry Potter e a Pedra Filosofal'),
+(3, 'Qual e o nome da mae dos dragoes em "Game of Thrones"?', 'Cersei Lannister', 'Sansa Stark', 'Daenerys Targaryen', 'Margaery Tyrell', 'Daenerys Targaryen'),
+(3, 'Qual banda lancou o album "Abbey Road"?', 'The Rolling Stones', 'The Beatles', 'Pink Floyd', 'Led Zeppelin', 'The Beatles'),
+(3, 'Quem dirigiu o filme "Inception"?', 'Steven Spielberg', 'James Cameron', 'Christopher Nolan', 'Martin Scorsese', 'Christopher Nolan');
+
+INSERT INTO perguntas (categoria_id, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, correta) VALUES
+(4, 'Qual empresa desenvolveu o sistema operacional Windows?', 'Apple', 'Google', 'Microsoft', 'IBM', 'Microsoft'),
+(4, 'Qual foi o primeiro smartphone da Apple?', 'iPhone 3G', 'iPhone 4', 'iPhone 5', 'iPhone', 'iPhone'),
+(4, 'Quem e conhecido como o pai da computacao?', 'Alan Turing', 'Charles Babbage', 'John von Neumann', 'Steve Jobs', 'Alan Turing'),
+(4, 'Qual e o nome do sistema operacional de codigo aberto mais popular?', 'Windows', 'MacOS', 'Linux', 'Android', 'Linux'),
+(4, 'Qual e a linguagem de programacao mais utilizada para desenvolvimento web?', 'Python', 'Java', 'C++', 'JavaScript', 'JavaScript'),
+(4, 'O que significa a sigla "HTTP"?', 'HyperText Transfer Protocol', 'HyperText Transmission Protocol', 'HyperText Translation Protocol', 'HyperText Transaction Protocol', 'HyperText Transfer Protocol'),
+(4, 'Qual foi a primeira rede social a alcancar um bilhao de usuarios?', 'Facebook', 'Twitter', 'Instagram', 'LinkedIn', 'Facebook'),
+(4, 'Quem e o fundador da Amazon?', 'Bill Gates', 'Elon Musk', 'Jeff Bezos', 'Mark Zuckerberg', 'Jeff Bezos'),
+(4, 'O que e um URL?', 'User Resource Locator', 'Uniform Resource Locator', 'Universal Resource Locator', 'Unified Resource Locator', 'Uniform Resource Locator'),
+(4, 'Qual empresa comprou o YouTube em 2006?', 'Microsoft', 'Amazon', 'Facebook', 'Google', 'Google');
+
+INSERT INTO perguntas (categoria_id, pergunta, alternativa1, alternativa2, alternativa3, alternativa4, correta) VALUES
+(5, 'Qual e a capital da Australia?', 'Sydney', 'Melbourne', 'Canberra', 'Brisbane', 'Canberra'),
+(5, 'Em que ano ocorreu a queda do Muro de Berlim?', '1985', '1987', '1989', '1991', '1989'),
+(5, 'Qual e o maior pais do mundo em area?', 'China', 'Canada', 'Russia', 'Estados Unidos', 'Russia'),
+(5, 'Quem pintou a Mona Lisa?', 'Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Claude Monet', 'Leonardo da Vinci'),
+(5, 'Qual e o idioma oficial do Brasil?', 'Espanhol', 'Portugues', 'Ingles', 'Frances', 'Portugues'),
+(5, 'Qual e o rio mais longo do mundo?', 'Nilo', 'Amazonas', 'Yangtze', 'Mississippi', 'Amazonas'),
+(5, 'Qual e o maior oceano do mundo?', 'Oceano Atlantico', 'Oceano Indico', 'Oceano Artico', 'Oceano Pacifico', 'Oceano Pacifico'),
+(5, 'Quem escreveu "Dom Quixote"?', 'William Shakespeare', 'Miguel de Cervantes', 'Gabriel Garcia Marquez', 'J.K. Rowling', 'Miguel de Cervantes'),
+(5, 'Qual e a montanha mais alta do mundo?', 'Everest', 'Monte Kilimanjaro', 'Monte Fuji', 'Monte Aconcagua', 'Everest'),
+(5, 'Quem foi o primeiro homem a pisar na lua?', 'Neil Armstrong', 'Yuri Gagarin', 'Buzz Aldrin', 'Alan Shepard', 'Neil Armstrong');
+
+-- Criacao da tabela de ranking
+CREATE TABLE ranking (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    nome VARCHAR(255),
+    pontuacao INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Insercoes para a tabela de ranking
+INSERT INTO ranking (usuario_id, nome, pontuacao) VALUES
+(1, 'Joao', 5),
+(2, 'Maria', 8),
+(3, 'Pedro', 9),
+(4, 'Ana', 7),
+(5, 'Luiza', 6);
+
