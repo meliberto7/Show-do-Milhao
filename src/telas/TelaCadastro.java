@@ -37,10 +37,10 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         inputLoginc = new javax.swing.JTextField();
-        inputSenhac = new javax.swing.JTextField();
         inputCadastrar = new javax.swing.JButton();
         inputNomeC = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        inputSenhac = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,9 +49,6 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         inputLoginc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel2.add(inputLoginc, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 150, 270, 70));
-
-        inputSenhac.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel2.add(inputSenhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, 270, 70));
 
         inputCadastrar.setBackground(new java.awt.Color(0, 0, 255));
         inputCadastrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -82,6 +79,13 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 730, 130, 40));
+
+        inputSenhac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputSenhacActionPerformed(evt);
+            }
+        });
+        jPanel2.add(inputSenhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 360, 270, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ShowdoMilhaC.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -143,6 +147,10 @@ if (novoLogin.isEmpty() || novoNome.isEmpty() || novaSenha.isEmpty()) {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNomeCActionPerformed
 
+    private void inputSenhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputSenhacActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -185,7 +193,7 @@ if (novoLogin.isEmpty() || novoNome.isEmpty() || novaSenha.isEmpty()) {
     private javax.swing.JButton inputCadastrar;
     private javax.swing.JTextField inputLoginc;
     private javax.swing.JTextField inputNomeC;
-    private javax.swing.JTextField inputSenhac;
+    private javax.swing.JPasswordField inputSenhac;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;

@@ -52,7 +52,7 @@ public class RankingDAO {
         // Verificar se o usuário já tem uma pontuação na tabela ranking
         stmt = conexao.prepareStatement("SELECT * FROM ranking WHERE usuario_id = ?");
         stmt.setInt(1, rank.getUsuario_Id());
-        stmt.setInt(2, rank.getPontuacao());
+        //stmt.setInt(2, rank.getPontuacao());
         ResultSet rs = stmt.executeQuery();
 
         if (rs.next()) {
@@ -70,6 +70,7 @@ public class RankingDAO {
             stmt.executeUpdate();
         }
 
+        rs.close();
         stmt.close();
         conexao.close();
     } catch (SQLException e) {

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package telas;
 
 import java.util.ArrayList;
@@ -14,17 +10,12 @@ import model.bean.Perguntas;
 import model.dao.PerguntasDAO;
 import model.dao.RankingDAO;
 
-/**
- *
- * @author Senai
- */
+
 public class TelaPerguntas extends javax.swing.JFrame {
 Perguntas perguntaAtual = new Perguntas();
 int pontuacao = 0;  
 int usuarioId;
-    /**
-     * Creates new form TelaUsuario
-     */
+
     public TelaPerguntas() {
         initComponents();
         setTitle("Perguntas");
@@ -71,7 +62,6 @@ int usuarioId;
             dispose();
             
 
-      
             new TelaRanking().setVisible(true);
             JOptionPane.showMessageDialog(null, "Pontuação: "+pontuacao);
             
@@ -196,9 +186,7 @@ int usuarioId;
         }); dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -224,7 +212,6 @@ int usuarioId;
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPerguntas().setVisible(true);
