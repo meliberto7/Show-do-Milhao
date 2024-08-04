@@ -59,11 +59,8 @@ private DefaultTableModel tableModel;
                 return canEdit [columnIndex];
             }
         });
+        tblRanking.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblRanking);
-        if (tblRanking.getColumnModel().getColumnCount() > 0) {
-            tblRanking.getColumnModel().getColumn(0).setResizable(false);
-            tblRanking.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
 

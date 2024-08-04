@@ -64,9 +64,10 @@ public class RankingDAO {
             stmt.executeUpdate();
         } else {
             // Se o usuário não tem uma pontuação, inserir uma nova linha na tabela
-            stmt = conexao.prepareStatement("INSERT INTO ranking (usuario_id, pontuacao) VALUES (?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO ranking (usuario_id, pontuacao, nome) VALUES (?, ?, ?)");
             stmt.setInt(1, rank.getUsuario_Id());
             stmt.setInt(2, rank.getPontuacao());
+            stmt.setString(3, rank.getNome());
             stmt.executeUpdate();
         }
 

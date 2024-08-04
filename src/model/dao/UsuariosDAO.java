@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.bean.GlobalUser;
 import model.bean.Usuarios;
 
 /**
@@ -98,6 +99,10 @@ try{
    rs = stmt.executeQuery();
    if(rs.next()){
        loginValido.setIdUsuario(rs.getInt("id"));
+       GlobalUser.setId(rs.getInt("id"));
+       GlobalUser.setNome(rs.getString("nome"));
+       GlobalUser.setUsuario(rs.getString("usuario"));
+       GlobalUser.setSenha(rs.getString("senha"));
    }
 
 }catch(SQLException e){
