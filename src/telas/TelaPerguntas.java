@@ -17,6 +17,10 @@ public class TelaPerguntas extends javax.swing.JFrame {
 Perguntas perguntaAtual = new Perguntas();
 int pontuacao = 0;  
 int usuarioId;
+Random random = new Random();
+boolean very = false;
+String num = null;
+List<String> list = new ArrayList();
 
     public TelaPerguntas() {
         initComponents();
@@ -27,7 +31,59 @@ int usuarioId;
         //carregarPerguntas();
        
         
-        int numeroPerguntaAtual = Global.getNumeroPergunta();
+        //int numeroPerguntaAtual = Global.getNumeroPergunta();
+        
+        int numeroPerguntaAtual = random.nextInt(9 + 1);
+        System.out.println("Numero: " + numeroPerguntaAtual);
+        
+        if (Global.getNumeros().size() > 0) {
+                 
+            for (int i = 0; i < Global.getNumeros().size(); i++) {
+            
+                if (Global.getNumeros().get(i).equals(String.valueOf(numeroPerguntaAtual))) {
+                
+                    very = true;
+                    num = Global.getNumeros().get(i);
+                
+                }
+                
+            } 
+            
+            if (very) {
+            
+                while (very) {
+                    
+                    boolean very2 = false;
+                    numeroPerguntaAtual = random.nextInt(9 + 1);
+                    
+                    for (int i = 0; i < Global.getNumeros().size(); i++) {
+            
+                        if (Global.getNumeros().get(i).equals(String.valueOf(numeroPerguntaAtual))) {
+                
+                        very2 = true;
+                        num = Global.getNumeros().get(i);
+                
+                        }
+                
+                    } 
+                    
+                    if (!very2) {
+                        
+                        very = false;
+                        
+                    }
+                    
+                    
+                }
+            
+            }
+            
+        }
+        
+        list.add(String.valueOf(numeroPerguntaAtual));
+        Global.setNumeros(list);
+        System.out.println("Numeros: " + Global.getNumeros());
+ 
         perguntaAtual = Global.getPerguntas().get(numeroPerguntaAtual);
         labelPergunta.setText(perguntaAtual.getPergunta());
         btnA.setText(perguntaAtual.getAlternativa1());
@@ -37,6 +93,9 @@ int usuarioId;
     }
    
      public void ValidaResposta(String resposta) {
+         
+         very = false;
+         
          if(perguntaAtual.getCorreta().equals(resposta)) {
             JOptionPane.showMessageDialog(null, "Certo");
             
@@ -45,11 +104,73 @@ int usuarioId;
             if(Global.getNumeroPergunta() > 9) {
                 JOptionPane.showMessageDialog(null, "Parabens você ganhou");
                 
+                RankingDAO dao = new RankingDAO();
+                Ranking user = new Ranking();
+                user.setNome(GlobalUser.getNome());
+                user.setPontuacao(Global.getNumeroPergunta());
+                user.setUsuario_Id(GlobalUser.getId());
+                dao.adicionarPontuacao(user);
+                Global.setNumeroPergunta(0);
                 
                 dispose();
                 new TelaGanhador().setVisible(true);
             } else {
-                int numeroPerguntaAtual = Global.getNumeroPergunta();
+                
+                int numeroPerguntaAtual = random.nextInt(9 + 1);
+        
+                System.out.println("Numero: " + numeroPerguntaAtual);
+                
+                if (Global.getNumeros().size() > 0) {
+                 
+            for (int i = 0; i < Global.getNumeros().size(); i++) {
+            
+                if (Global.getNumeros().get(i).equals(String.valueOf(numeroPerguntaAtual))) {
+                
+                    very = true;
+                    num = Global.getNumeros().get(i);
+                
+                }
+                
+            } 
+            
+            if (very) {
+            
+                while (very) {
+                    
+                    boolean very2 = false;
+                    numeroPerguntaAtual = random.nextInt(9 + 1);
+                    
+                    for (int i = 0; i < Global.getNumeros().size(); i++) {
+            
+                        if (Global.getNumeros().get(i).equals(String.valueOf(numeroPerguntaAtual))) {
+                
+                        very2 = true;
+                        num = Global.getNumeros().get(i);
+                
+                        }
+                
+                    } 
+                    
+                    if (!very2) {
+                        
+                        very = false;
+                        
+                    }
+                    
+                    
+                }
+            
+            }
+            
+        }        
+                list.add(String.valueOf(numeroPerguntaAtual));
+                Global.setNumeros(list);
+                System.out.println("Numeros: " + Global.getNumeros());
+                
+                
+            
+        
+                
                 perguntaAtual = Global.getPerguntas().get(numeroPerguntaAtual);
                 labelPergunta.setText(perguntaAtual.getPergunta());
                 btnA.setText(perguntaAtual.getAlternativa1());

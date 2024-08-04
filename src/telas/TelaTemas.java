@@ -177,6 +177,7 @@ private void carregarPerguntasPorCategoria(int categoriaId) {
     try {
         // Limpa a lista Global.getPerguntas()
         Global.setPerguntas(new ArrayList<>());
+        Global.setNumeros(new ArrayList<>());
 
         // Perguntas do banco de dados
         List<Perguntas> perguntasPorCategoria = perguntasDAO.lerPorCategoria(categoriaId);

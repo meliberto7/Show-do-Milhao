@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author costa
- */
+
 public class Global {
     private static int id;
     public static List<Perguntas> perguntas = new ArrayList();
+    public static List<String> numeros = new ArrayList();
     public static int numeroPergunta = 0;
 
     public static int getId() {
@@ -41,8 +34,13 @@ public class Global {
         Global.numeroPergunta = numeroPergunta;
     }
 
-   
+    public static List<String> getNumeros() {
+        return numeros;
+    }
 
+    public static void setNumeros(List<String> numeros) {
+        Global.numeros = numeros;
+    }
     
     
 }
