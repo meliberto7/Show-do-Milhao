@@ -40,6 +40,7 @@ public class TelaLogin extends javax.swing.JFrame {
         inputcadastrar = new javax.swing.JButton();
         inputSenha = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +78,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ShowDoMilha.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButton1.setText("jButton1");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +120,7 @@ if (loginVi.isEmpty() || senhaV.isEmpty()) {
     Global.setId(loginVteste.getIdUsuario());
      
     if (loginVteste.getIdUsuario() > 0) {
-        JOptionPane.showMessageDialog(null, "Login bem sucessido");
+        JOptionPane.showMessageDialog(null, "Login bem sucedido");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaMenu().setVisible(true);
@@ -169,6 +173,7 @@ if (loginVi.isEmpty() || senhaV.isEmpty()) {
     private javax.swing.JTextField inputLogin;
     private javax.swing.JPasswordField inputSenha;
     private javax.swing.JButton inputcadastrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -86,10 +86,52 @@ List<String> list = new ArrayList();
  
         perguntaAtual = Global.getPerguntas().get(numeroPerguntaAtual);
         labelPergunta.setText(perguntaAtual.getPergunta());
-        btnA.setText(perguntaAtual.getAlternativa1());
-        btnB.setText(perguntaAtual.getAlternativa2());
-        btnC.setText(perguntaAtual.getAlternativa3());
-        btnD.setText(perguntaAtual.getAlternativa4());
+        
+        switch(random.nextInt(4 + 1)) {
+            
+            case 1: 
+                System.out.println("case 1");
+                btnA.setText(perguntaAtual.getAlternativa1());
+                btnB.setText(perguntaAtual.getAlternativa2());
+                btnC.setText(perguntaAtual.getAlternativa3());
+                btnD.setText(perguntaAtual.getAlternativa4());
+                
+                break;
+            case 2: 
+                System.out.println("case 2");
+                btnA.setText(perguntaAtual.getAlternativa3());
+                btnB.setText(perguntaAtual.getAlternativa1());
+                btnC.setText(perguntaAtual.getAlternativa2());
+                btnD.setText(perguntaAtual.getAlternativa4());
+                
+                break;
+            case 3: 
+                System.out.println("case 3");
+                btnA.setText(perguntaAtual.getAlternativa4());
+                btnB.setText(perguntaAtual.getAlternativa3());
+                btnC.setText(perguntaAtual.getAlternativa2());
+                btnD.setText(perguntaAtual.getAlternativa1());
+                
+                break;
+            case 4: 
+                System.out.println("case 4");
+                btnA.setText(perguntaAtual.getAlternativa4());
+                btnB.setText(perguntaAtual.getAlternativa2());
+                btnC.setText(perguntaAtual.getAlternativa1());
+                btnD.setText(perguntaAtual.getAlternativa3());
+                
+                break;
+                
+            default:
+                btnA.setText(perguntaAtual.getAlternativa2());
+                btnB.setText(perguntaAtual.getAlternativa1());
+                btnC.setText(perguntaAtual.getAlternativa4());
+                btnD.setText(perguntaAtual.getAlternativa3());
+                break;
+            
+        }
+        
+        
     }
    
      public void ValidaResposta(String resposta) {
@@ -173,10 +215,51 @@ List<String> list = new ArrayList();
                 
                 perguntaAtual = Global.getPerguntas().get(numeroPerguntaAtual);
                 labelPergunta.setText(perguntaAtual.getPergunta());
+                
+                switch(random.nextInt(4 + 1)) {
+            
+            case 1: 
+                System.out.println("case 1");
                 btnA.setText(perguntaAtual.getAlternativa1());
                 btnB.setText(perguntaAtual.getAlternativa2());
                 btnC.setText(perguntaAtual.getAlternativa3());
                 btnD.setText(perguntaAtual.getAlternativa4());
+                
+                break;
+            case 2: 
+                System.out.println("case 2");
+                btnA.setText(perguntaAtual.getAlternativa3());
+                btnB.setText(perguntaAtual.getAlternativa1());
+                btnC.setText(perguntaAtual.getAlternativa2());
+                btnD.setText(perguntaAtual.getAlternativa4());
+                
+                break;
+            case 3: 
+                System.out.println("case 3");
+                btnA.setText(perguntaAtual.getAlternativa4());
+                btnB.setText(perguntaAtual.getAlternativa3());
+                btnC.setText(perguntaAtual.getAlternativa2());
+                btnD.setText(perguntaAtual.getAlternativa1());
+                
+                break;
+            case 4: 
+                System.out.println("case 4");
+                btnA.setText(perguntaAtual.getAlternativa4());
+                btnB.setText(perguntaAtual.getAlternativa2());
+                btnC.setText(perguntaAtual.getAlternativa1());
+                btnD.setText(perguntaAtual.getAlternativa3());
+                
+                break;
+                
+            default:
+                btnA.setText(perguntaAtual.getAlternativa2());
+                btnB.setText(perguntaAtual.getAlternativa1());
+                btnC.setText(perguntaAtual.getAlternativa4());
+                btnD.setText(perguntaAtual.getAlternativa3());
+                break;    
+            
+        }
+                
                 pontuacao ++;
             }
         } else {
