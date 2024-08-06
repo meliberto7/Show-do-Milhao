@@ -386,6 +386,14 @@ List<String> list = new ArrayList();
     }//GEN-LAST:event_btnDActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+        RankingDAO dao = new RankingDAO();
+            Ranking user = new Ranking();
+            user.setNome(GlobalUser.getNome());
+            user.setPontuacao(Global.getNumeroPergunta());
+            user.setUsuario_Id(GlobalUser.getId());
+            dao.adicionarPontuacao(user);
+            
         Global.setNumeroPergunta(0); // Resetar o número de pergunta para 0
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
