@@ -285,21 +285,17 @@ List<String> list = new ArrayList();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        labelPergunta = new javax.swing.JLabel();
         btnA = new javax.swing.JButton();
         btnC = new javax.swing.JButton();
         btnB = new javax.swing.JButton();
         btnD = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        labelPergunta = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        labelPergunta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labelPergunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 740, 90));
 
         btnA.setBackground(new java.awt.Color(0, 0, 255));
         btnA.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -309,7 +305,7 @@ List<String> list = new ArrayList();
                 btnAActionPerformed(evt);
             }
         });
-        jPanel1.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 470, 60));
+        jPanel1.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 470, 60));
 
         btnC.setBackground(new java.awt.Color(0, 0, 255));
         btnC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -319,7 +315,7 @@ List<String> list = new ArrayList();
                 btnCActionPerformed(evt);
             }
         });
-        jPanel1.add(btnC, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 470, 60));
+        jPanel1.add(btnC, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 470, 60));
 
         btnB.setBackground(new java.awt.Color(0, 0, 255));
         btnB.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -329,7 +325,7 @@ List<String> list = new ArrayList();
                 btnBActionPerformed(evt);
             }
         });
-        jPanel1.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 470, 60));
+        jPanel1.add(btnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 470, 60));
 
         btnD.setBackground(new java.awt.Color(0, 0, 255));
         btnD.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -339,7 +335,7 @@ List<String> list = new ArrayList();
                 btnDActionPerformed(evt);
             }
         });
-        jPanel1.add(btnD, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 540, 470, 60));
+        jPanel1.add(btnD, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, 470, 60));
 
         jButton5.setBackground(new java.awt.Color(204, 0, 0));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -350,10 +346,19 @@ List<String> list = new ArrayList();
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 140, 30));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 660, 140, 30));
+
+        labelPergunta.setEditable(false);
+        labelPergunta.setBackground(new java.awt.Color(0, 0, 0, 0));
+        labelPergunta.setColumns(20);
+        labelPergunta.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        labelPergunta.setLineWrap(true);
+        labelPergunta.setRows(5);
+        labelPergunta.setBorder(null);
+        jPanel1.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 700, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ShowPergunta.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -455,7 +460,7 @@ List<String> list = new ArrayList();
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelPergunta;
+    private javax.swing.JTextArea labelPergunta;
     // End of variables declaration//GEN-END:variables
 
    
