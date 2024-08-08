@@ -57,11 +57,17 @@ public class RankingDAO {
 
         if (rs.next()) {
             // Se o usuário já tem uma pontuação, atualizar a pontuação
-            int novaPontuacao = rs.getInt("pontuacao") + rank.getPontuacao();
-            stmt = conexao.prepareStatement("UPDATE ranking SET pontuacao = ? WHERE usuario_id = ?");
-            stmt.setInt(1, novaPontuacao);
-            stmt.setInt(2, rank.getUsuario_Id());
-            stmt.executeUpdate();
+            int novaPontuacao = rs.getInt("pontuacao");
+            if (novaPontuacao < rank.getPontuacao()) {
+                
+                stmt = conexao.prepareStatement("UPDATE ranking SET pontuacao = ? WHERE usuario_id = ?");
+                stmt.setInt(1, rank.getPontuacao());
+                stmt.setInt(2, rank.getUsuario_Id());
+                stmt.executeUpdate();
+                
+            }
+            
+            
         } else {
             // Se o usuário não tem uma pontuação, inserir uma nova linha na tabela
             stmt = conexao.prepareStatement("INSERT INTO ranking (usuario_id, pontuacao, nome) VALUES (?, ?, ?)");
